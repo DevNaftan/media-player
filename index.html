@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Player</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <figure class="logo"></figure>
+      <h1 class="title">Media Player</h1>
+    </header>
+    <main class="main">
+      <video class="video">
+        <source src="./assets/videos/BigBuckBunny.mp4" type="video/mp4" />
+      </video>
+      <div class="btn-container">
+        <button id="btnPlay" class="btn" type="button">Play/Pause</button>
+        <button id="btnMute" class="btn" type="button">Mute/Unmute</button>
+      </div>
+    </main>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>

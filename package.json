@@ -1,0 +1,15 @@
+{
+  "name": "media-player",
+  "version": "1.0.0",
+  "description": "Media Player",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server"
+  },
+  "keywords": [
+    "JavaScript",
+    "MediaPlayer"
+  ],
+  "author": "Naftan <me@naftan.dev>",
+  "license": "MIT"
+}
