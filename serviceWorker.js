@@ -1,11 +1,13 @@
 const VERSION = "v1";
 
+// Escucha la instalación del SW para guardar los datos en caché
 self.addEventListener("install", (event) => event.waitUntil(precache()));
 
+// Obtiene los datos de la caché
 self.addEventListener("fetch", (event) => {
   const request = event.request;
 
-  // Comprueba si el método de la petición es GET
+  // Comprueba si el método de la respuesta de la petición es GET
   if (request.method !== "GET") {
     return;
   }
@@ -13,13 +15,14 @@ self.addEventListener("fetch", (event) => {
   // Busca los datos en caché
   event.respondWith(cachedResponse(request));
 
-  // Actualizar caché
+  // Actualiza la caché
   event.waitUntil(updateCache(request));
 });
 
 async function precache() {
-  const cache = await caches.open(VERSION);
+  const cache = await caches.open(VERSION); // Abre el objeto indicado de la caché
   return cache.addAll([
+    // Añade los datos al objeto
     "./",
     "./index.html",
     "./style.css",
@@ -40,7 +43,8 @@ async function cachedResponse(request) {
 async function updateCache(request) {
   const cache = await caches.open(VERSION);
   const response = await fetch(request);
-  return response.status === 200
-    ? cache.put(request, response)
-    : new Promise((resolve, reject) => resolve(":D"));
+  if (response.status === 200) {
+    return cache.put(request, response);
+  }
+  return;
 }
